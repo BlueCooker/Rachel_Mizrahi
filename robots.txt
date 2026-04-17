@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rachelmizrahi.co.il/sitemap.xml
