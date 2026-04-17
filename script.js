@@ -97,25 +97,38 @@ function initStickyHeader() {
 }
 
 function initServicesSlider() {
+    const slider = document.querySelector(".services-slider");
     const track = document.querySelector(".services-track");
     const wrap = document.querySelector(".services-track-wrap");
     const prev = document.querySelector(".services-slider .slider-prev");
     const next = document.querySelector(".services-slider .slider-next");
-    if (!track || !wrap || !prev || !next) return;
+    if (!slider || !track || !wrap || !prev || !next) return;
 
     const cards = Array.from(track.children);
     if (!cards.length) return;
 
+    const MOBILE_BP = 768;
+    const AUTO_INTERVAL = 5000;
+
     const getVisibleCount = () => {
         const w = window.innerWidth;
         if (w > 1024) return 3;
-        if (w > 768) return 2;
+        if (w > MOBILE_BP) return 2;
         return 1;
     };
+    const isMobile = () => window.innerWidth <= MOBILE_BP;
 
     let index = 0;
+    let autoTimer = null;
+    let inView = false;
 
     const update = () => {
+        if (isMobile()) {
+            track.style.transform = "";
+            prev.disabled = true;
+            next.disabled = true;
+            return;
+        }
         const visible = getVisibleCount();
         const maxIndex = Math.max(0, cards.length - visible);
         index = Math.min(Math.max(0, index), maxIndex);
@@ -131,13 +144,52 @@ function initServicesSlider() {
         next.disabled = index >= maxIndex;
     };
 
-    prev.addEventListener("click", () => { index -= 1; update(); });
-    next.addEventListener("click", () => { index += 1; update(); });
+    const advance = () => {
+        if (isMobile()) return;
+        const visible = getVisibleCount();
+        const maxIndex = Math.max(0, cards.length - visible);
+        index = index >= maxIndex ? 0 : index + 1;
+        update();
+    };
+
+    const stopAuto = () => {
+        if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    };
+    const startAuto = () => {
+        stopAuto();
+        if (isMobile() || !inView) return;
+        autoTimer = setInterval(advance, AUTO_INTERVAL);
+    };
+
+    prev.addEventListener("click", () => { index -= 1; update(); startAuto(); });
+    next.addEventListener("click", () => { index += 1; update(); startAuto(); });
+
+    slider.addEventListener("mouseenter", stopAuto);
+    slider.addEventListener("mouseleave", startAuto);
+    slider.addEventListener("focusin", stopAuto);
+    slider.addEventListener("focusout", startAuto);
+
+    if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                inView = e.isIntersecting;
+                if (inView) startAuto(); else stopAuto();
+            });
+        }, { threshold: 0.2 });
+        io.observe(slider);
+    } else {
+        inView = true;
+        startAuto();
+    }
 
     let resizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(update, 120);
+        resizeTimer = setTimeout(() => {
+            update();
+            if (isMobile()) stopAuto();
+            else if (!autoTimer && inView) startAuto();
+        }, 120);
     });
 
     update();
