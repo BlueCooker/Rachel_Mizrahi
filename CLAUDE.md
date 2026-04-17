@@ -73,15 +73,23 @@ Both legal pages currently contain the literal placeholder `יעודכן בהש�
 
 - **Testimonials stay as initials-only placeholders** (e.g. `ת.ל., תל אביב`) with a `NOTE:` comment in `script.js` flagging them. Never invent full names or present fabricated testimonials as real — consumer-protection law and therapy-profession ethics both prohibit it. Real testimonials can only replace the placeholders after written client consent.
 
+## SEO and structured data
+
+- `index.html` `<head>` contains expanded meta (title, description, keywords, geo), OG + Twitter card tags, canonical + hreflang, and a JSON-LD `@graph` with `Person`, `ProfessionalService`, and `WebSite` entities. `privacy.html` and `accessibility.html` also carry canonical + OG (they stay `noindex` intentionally).
+- `sitemap.xml` lists the three public pages. `robots.txt` allows all crawlers and points to the sitemap.
+- **Placeholder domain is `https://rachelmizrahi.co.il/`.** Every canonical link, OG `og:url`/`og:image`, JSON-LD `@id`/`url`, and the sitemap URLs reference it. When the real domain is known, search-and-replace this string across the repo (index.html, privacy.html, accessibility.html, sitemap.xml, robots.txt).
+- If contact details, address, or specialties change, update both the visible page content AND the JSON-LD block in `index.html` - they will drift otherwise.
+
 ## Pending before production launch
 
-These items are known-incomplete and should not be "fixed" silently — they need the real values from Rachel:
+These items are known-incomplete and should not be "fixed" silently - they need the real values from Rachel:
 
 - Google Analytics Measurement ID (`gtag.js` snippet is present but commented out in `index.html` `<head>`)
 - Real testimonials with written consent to replace the 5 placeholders in `script.js`
 - Replace `יעודכן בהשקה` date placeholders in `privacy.html` and `accessibility.html`
 - Dedicated `favicon.ico` (currently reusing `Images/Logo.jpg`)
 - Legal review of `privacy.html` and `accessibility.html` text
+- Replace the placeholder domain `https://rachelmizrahi.co.il/` in canonical links, OG tags, JSON-LD, `sitemap.xml`, and `robots.txt` with the actual production domain
 
 ## Reference
 
