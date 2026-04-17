@@ -1,0 +1,25 @@
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Node (if ever added)
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Claude Code local state
+.claude/
