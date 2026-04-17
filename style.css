@@ -181,8 +181,123 @@ p {
     background: var(--primary-lighter);
 }
 
-.high-contrast {
-    filter: contrast(1.4);
+/* High-contrast mode: explicit color overrides.
+   NOTE: do NOT use `filter: contrast(...)` on <body> — it creates a new
+   containing block for `position: fixed` descendants (FABs, a11y widget,
+   sticky header), which then position relative to the filtered body
+   instead of the viewport and get pushed off-screen on long pages. */
+body.high-contrast,
+body.high-contrast .section,
+body.high-contrast .services,
+body.high-contrast .testimonials,
+body.high-contrast .contact,
+body.high-contrast .legal-page {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast .section-title-script,
+body.high-contrast .hero-title,
+body.high-contrast .service-title,
+body.high-contrast .testimonial-name,
+body.high-contrast .footer-name,
+body.high-contrast .legal-title,
+body.high-contrast .legal-container strong {
+    color: #fff !important;
+}
+
+body.high-contrast .hero,
+body.high-contrast .hero::after,
+body.high-contrast .header,
+body.high-contrast .footer,
+body.high-contrast .service-card,
+body.high-contrast .testimonial-card,
+body.high-contrast .contact-info,
+body.high-contrast .contact-form,
+body.high-contrast .legal-container,
+body.high-contrast .legal-notice,
+body.high-contrast .a11y-panel,
+body.high-contrast .nav-list {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+body.high-contrast a,
+body.high-contrast .nav-list a,
+body.high-contrast .footer a,
+body.high-contrast .contact-row a,
+body.high-contrast .legal-container a {
+    color: #ffeb3b !important;
+}
+
+body.high-contrast .btn-primary,
+body.high-contrast .form-submit {
+    background: #ffeb3b !important;
+    color: #000 !important;
+    border-color: #000 !important;
+}
+
+body.high-contrast .btn-outline {
+    background: transparent !important;
+    color: #ffeb3b !important;
+    border-color: #ffeb3b !important;
+}
+
+body.high-contrast input,
+body.high-contrast select,
+body.high-contrast textarea {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+body.high-contrast .service-icon,
+body.high-contrast .contact-icon {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+body.high-contrast .slider-btn,
+body.high-contrast .carousel-btn {
+    background: #fff !important;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+}
+
+body.high-contrast .fab-whatsapp {
+    background: #25D366 !important;
+    color: #000 !important;
+}
+
+body.high-contrast .fab-phone,
+body.high-contrast .a11y-toggle {
+    background: #ffeb3b !important;
+    color: #000 !important;
+}
+
+body.high-contrast .a11y-btn {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+body.high-contrast .a11y-btn.active {
+    background: #ffeb3b !important;
+    color: #000 !important;
+    border-color: #000 !important;
+}
+
+body.high-contrast .dot {
+    background: #fff !important;
+}
+
+body.high-contrast .dot.active {
+    background: #ffeb3b !important;
 }
 
 .highlight-links a:not(.btn):not(.fab) {
