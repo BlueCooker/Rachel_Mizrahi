@@ -182,7 +182,7 @@ p {
 }
 
 /* High-contrast mode: explicit color overrides.
-   NOTE: do NOT use `filter: contrast(...)` on <body> — it creates a new
+   NOTE: do NOT use `filter: contrast(...)` on <body> - it creates a new
    containing block for `position: fixed` descendants (FABs, a11y widget,
    sticky header), which then position relative to the filtered body
    instead of the viewport and get pushed off-screen on long pages. */

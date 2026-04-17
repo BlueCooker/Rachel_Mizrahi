@@ -2,47 +2,47 @@
 
 > Use this template to plan and build a landing page for any service-based business.
 > Fill in each section below, then hand it to your developer (or AI assistant) to generate the site.
-> All fields are placeholders — replace them with your own values.
+> All fields are placeholders - replace them with your own values.
 > Sections marked **(optional)** can be removed if not needed.
 
 ---
 
 ## 0. Scope at a Glance
 
-The reference implementation (Shiraz Levi — Hebrew RTL cosmetics landing page) includes:
+The reference implementation (Shiraz Levi - Hebrew RTL cosmetics landing page) includes:
 
 - Single-page layout (`index.html`) with Hero, Services, Brands, Gallery, Testimonials, Contact, Footer
 - Two auxiliary pages: `privacy.html`, `accessibility.html`
 - Floating Action Buttons (phone + WhatsApp)
-- Floating Accessibility Widget (font size, contrast, link highlight, reduce motion, reset) — **legally required for Israeli businesses, see §0.1**
+- Floating Accessibility Widget (font size, contrast, link highlight, reduce motion, reset) - **legally required for Israeli businesses, see §0.1**
 - Google Analytics (gtag.js)
 - Deferred, idle-loaded JS for performance (no blocking scripts above the fold)
 - Inline SVG icons (no icon-library CDN)
 
-Drop any section you don't need — the CSS/JS are tolerant of missing DOM nodes.
+Drop any section you don't need - the CSS/JS are tolerant of missing DOM nodes.
 
 ---
 
-## 0.1 Legal Compliance (Israel) — READ BEFORE SHIPPING
+## 0.1 Legal Compliance (Israel) - READ BEFORE SHIPPING
 
 > ⚠️ **This is a liability issue, not a nice-to-have.** A site operated by an Israeli business that fails to meet these requirements exposes the owner to civil lawsuits, statutory damages (up to **₪50,000 without proof of damage** per plaintiff under the Equal Rights for Persons with Disabilities Law), Privacy Protection Authority enforcement, and reputational harm. The three items below are **mandatory** for the reference site's target audience.
 
-### A. Accessibility — required by law
+### A. Accessibility - required by law
 
 **Legal basis:**
 - *Equal Rights for Persons with Disabilities Law, 5758-1998*
-- *Equal Rights for Persons with Disabilities (Service Accessibility Adjustments) Regulations, 5773-2013* — service providers with a public-facing website must make it accessible.
+- *Equal Rights for Persons with Disabilities (Service Accessibility Adjustments) Regulations, 5773-2013* - service providers with a public-facing website must make it accessible.
 - *Israeli Standard IS 5568*, which adopts **WCAG 2.0 Level AA** as the technical benchmark for websites.
 
 **What the site MUST have:**
 1. **Technical conformance** with WCAG 2.0 AA (keyboard nav, alt text, contrast, focus states, ARIA, etc.).
-2. **An accessibility widget** (font size, contrast, link highlighting, motion reduction, reset) — see §15. In Israeli practice this widget is treated as standard and is what end-users look for as visible proof of compliance.
+2. **An accessibility widget** (font size, contrast, link highlighting, motion reduction, reset) - see §15. In Israeli practice this widget is treated as standard and is what end-users look for as visible proof of compliance.
 3. **A published accessibility statement** (`accessibility.html`) that names an accessibility coordinator, lists the standard being met, documents known limitations, and gives a feedback channel. See §17.
 4. **A link to the accessibility statement** from the footer of every page.
 
 **For this template:** §15 (Accessibility Widget) and the `accessibility.html` auxiliary page are **NOT optional** for businesses subject to Israeli law. Do not ship without them.
 
-### B. Privacy — required by law
+### B. Privacy - required by law
 
 **Legal basis:**
 - *Privacy Protection Law, 5741-1981* (as substantially amended by **Amendment No. 13 of 2024**, in force from **August 2025**, which tightens definitions, adds database-registration obligations, and grants the PPA stronger enforcement and fining powers).
@@ -50,16 +50,16 @@ Drop any section you don't need — the CSS/JS are tolerant of missing DOM nodes
 
 **What the site MUST have:**
 1. **A privacy policy** (`privacy.html`) describing: what personal data is collected (contact form fields, analytics, cookies), purposes, legal basis, recipients/processors, retention, user rights (access / correction / deletion / objection), international transfers, cookie/tracking disclosures, and contact details for privacy requests.
-2. **Consent at the point of collection** — the contact form's mandatory "I agree to the privacy policy" checkbox (linked to `privacy.html`) is there specifically to evidence this. Do not remove it.
+2. **Consent at the point of collection** - the contact form's mandatory "I agree to the privacy policy" checkbox (linked to `privacy.html`) is there specifically to evidence this. Do not remove it.
 3. **A link to the privacy policy** from the footer of every page and from any form that collects personal data.
 4. **Google Analytics / cookie disclosure** inside the privacy policy if `gtag.js` (or any tracker) is included.
-5. **Database registration** with the PPA if the collected data crosses the thresholds defined by the amended law — check per-client.
+5. **Database registration** with the PPA if the collected data crosses the thresholds defined by the amended law - check per-client.
 
 ### C. Keep it current
 
 **Both laws are evolving.** The Privacy Protection Amendment No. 13 changed materially in 2025; accessibility regulations have been amended multiple times. **Before each launch**:
 
-- [ ] Confirm current conformance target (WCAG 2.0 AA is still the IS 5568 benchmark at time of writing — verify it hasn't moved to WCAG 2.1 / 2.2).
+- [ ] Confirm current conformance target (WCAG 2.0 AA is still the IS 5568 benchmark at time of writing - verify it hasn't moved to WCAG 2.1 / 2.2).
 - [ ] Confirm current privacy-law requirements (post-Amendment-13 obligations, database registration thresholds, cookie rules).
 - [ ] Have the `privacy.html` and `accessibility.html` content reviewed by a lawyer familiar with Israeli digital law, or at minimum against current PPA and Accessibility Commissioner guidance.
 - [ ] Re-run an accessibility audit (automated + manual keyboard + screen reader) on the deployed site, not just in dev.
@@ -91,7 +91,7 @@ Drop any section you don't need — the CSS/JS are tolerant of missing DOM nodes
 | Appointment Note (e.g. "by appointment only") | `[APPOINTMENT_NOTE]` |
 | Default WhatsApp Message | `[DEFAULT_WHATSAPP_MESSAGE]` |
 
-> Instagram/email are interchangeable in the contact card — pick whichever channels the business actually uses.
+> Instagram/email are interchangeable in the contact card - pick whichever channels the business actually uses.
 
 ---
 
@@ -161,8 +161,8 @@ The reference site defines a rich palette via CSS custom properties in `:root`. 
 |-------|-----------------|-------|
 | Logo (header + footer) | `[LOGO_PATH]` | Square or circular crop, served as `.webp` with `.jpg`/`.png` fallback |
 | Favicon | `[FAVICON_PATH]` | Usually same file as logo |
-| Hero Portrait (front) | `[HERO_PORTRAIT_PATH]` | Main hero image — preloaded with `rel="preload"` and `fetchpriority="high"` |
-| Hero Portrait (back, optional) | `[HERO_BACK_PATH]` | Shown on flip-card hover — typically the logo |
+| Hero Portrait (front) | `[HERO_PORTRAIT_PATH]` | Main hero image - preloaded with `rel="preload"` and `fetchpriority="high"` |
+| Hero Portrait (back, optional) | `[HERO_BACK_PATH]` | Shown on flip-card hover - typically the logo |
 | Open Graph Image | `[OG_IMAGE_PATH]` | For social sharing |
 | Gallery Images (optional) | `Images/gallery-*.webp` | Any count; populate `<div class="gallery-slide">` for each |
 | Brand Logos (optional) | `Images/brand-*.webp` | One per partner/supplier shown in the Brands grid |
@@ -220,10 +220,10 @@ Compact hero centered on the page with a portrait image (optional flip-card), he
 | Field | Your Value |
 |-------|------------|
 | Portrait Image (front) | `[HERO_PORTRAIT_PATH]` |
-| Portrait Image (back, optional — shown on hover flip) | `[HERO_BACK_PATH]` |
+| Portrait Image (back, optional - shown on hover flip) | `[HERO_BACK_PATH]` |
 | Main Title | `[HERO_MAIN_TITLE]` |
 | Role / Subtitle (one line) | `[HERO_ROLE]` |
-| Description (1–2 sentences) | `[HERO_SUBTITLE]` |
+| Description (1-2 sentences) | `[HERO_SUBTITLE]` |
 
 ### Hero CTA Buttons (2 buttons)
 
@@ -238,13 +238,13 @@ Compact hero centered on the page with a portrait image (optional flip-card), he
 
 - **Badge text** (small label above the title): wrap in `<span class="hero-badge">`.
 - **Feature bullets** (short list under the subtitle): use an `<ul>` with checkmark SVGs.
-- **Trust strip** (stat row with 3–4 numbers): add a `<section class="trust-strip">` below the hero with `.stat-item` children (`number` + `label`).
+- **Trust strip** (stat row with 3-4 numbers): add a `<section class="trust-strip">` below the hero with `.stat-item` children (`number` + `label`).
 
 ---
 
 ## 9. Services Section
 
-Horizontal **slider** of 5–8 cards (prev/next buttons on desktop, swipe on mobile). Each card: icon + title + short description.
+Horizontal **slider** of 5-8 cards (prev/next buttons on desktop, swipe on mobile). Each card: icon + title + short description.
 
 ### Section Header
 
@@ -266,20 +266,20 @@ Horizontal **slider** of 5–8 cards (prev/next buttons on desktop, swipe on mob
 | 7 | `[ICON_SVG_7]` | `[SERVICE_7_TITLE]` | `[SERVICE_7_DESCRIPTION]` |
 | 8 (optional) | `[ICON_SVG_8]` | `[SERVICE_8_TITLE]` | `[SERVICE_8_DESCRIPTION]` |
 
-> **Icons:** the reference site uses **inline SVGs** (no external library) for zero dependencies and faster TTI. Grab shapes from [lucide.dev/icons](https://lucide.dev/icons) and paste the SVG markup directly — don't load Lucide via CDN.
+> **Icons:** the reference site uses **inline SVGs** (no external library) for zero dependencies and faster TTI. Grab shapes from [lucide.dev/icons](https://lucide.dev/icons) and paste the SVG markup directly - don't load Lucide via CDN.
 > **Feature bullets per card** (3 items each) are supported by the template but **not used** in the reference site. Add `<ul class="service-features">` inside the card if you want them.
 
 ### Slider behavior
 
 - Desktop (>1024px): 5 cards visible, prev/next buttons
-- Tablet (768–1024px): 3 cards visible
+- Tablet (768-1024px): 3 cards visible
 - Mobile (≤768px): slider disabled, cards stack / scroll-snap
 
 ---
 
 ## 10. Brands Section (optional)
 
-Grid of 4–6 partner/product brand logos with a short intro. Remove the whole `<section class="brands">` if irrelevant.
+Grid of 4-6 partner/product brand logos with a short intro. Remove the whole `<section class="brands">` if irrelevant.
 
 ### Section Header
 
@@ -329,7 +329,7 @@ Each slide: `<div class="gallery-slide"><img src="..." alt="..." width="800" hei
 ### Slider behavior
 
 - Desktop (>768px): 3 slides visible
-- Tablet (481–768px): 2 slides visible
+- Tablet (481-768px): 2 slides visible
 - Mobile (≤480px): 1 slide visible
 - Autoplay: 3s interval, pauses on hover or when scrolled out of view
 - Lightbox: click/Enter/Space opens zoomed view, Escape closes, focus trapped
@@ -338,7 +338,7 @@ Each slide: `<div class="gallery-slide"><img src="..." alt="..." width="800" hei
 
 ## 12. Testimonials Section
 
-Carousel of testimonial cards with star ratings. Data defined in `script.js` (not HTML) — the JS builds cards and dots dynamically.
+Carousel of testimonial cards with star ratings. Data defined in `script.js` (not HTML) - the JS builds cards and dots dynamically.
 
 ### Section Header
 
@@ -381,7 +381,7 @@ Two-column layout: contact info card on one side, contact form on the other.
 | Title (script font) | `[CONTACT_SECTION_TITLE]` |
 | Description | `[CONTACT_SECTION_DESCRIPTION]` |
 
-### Contact Info Card — each row: inline SVG icon + label + value(s)
+### Contact Info Card - each row: inline SVG icon + label + value(s)
 
 | Row | Label | Value(s) | Notes |
 |-----|-------|----------|-------|
@@ -406,7 +406,7 @@ Form submits via WhatsApp (no backend): JS builds a pre-filled message and opens
 | Message | textarea | No | `[PLACEHOLDER_MESSAGE]` |
 | Privacy Consent | checkbox | Yes | Links to `privacy.html` |
 
-### Topic Options (customize per business — key used as WhatsApp tag, label shown in UI)
+### Topic Options (customize per business - key used as WhatsApp tag, label shown in UI)
 
 | # | Value (key) | Display Label |
 |---|-------------|---------------|
@@ -443,7 +443,7 @@ Two fixed-position buttons always visible at bottom of screen (RTL: left side; L
 
 ## 15. Accessibility Widget
 
-> ⚠️ **Mandatory for Israeli businesses** — see §0.1.A. Technically optional for deployments outside Israel, but strongly recommended.
+> ⚠️ **Mandatory for Israeli businesses** - see §0.1.A. Technically optional for deployments outside Israel, but strongly recommended.
 
 Floating side-panel button (position-fixed, vertically centered). Injected into `<body>` by `initAccessibilityWidget()` in `script.js`.
 
@@ -455,7 +455,7 @@ Floating side-panel button (position-fixed, vertically centered). Injected into 
 | Stop animations | Adds `.stop-animations` to `<body>` |
 | Reset | Removes all classes and resets font size |
 
-> Widget labels are hard-coded in the JS — translate them when localizing. The companion `accessibility.html` declaration page should reference the same controls.
+> Widget labels are hard-coded in the JS - translate them when localizing. The companion `accessibility.html` declaration page should reference the same controls.
 
 ---
 
@@ -467,17 +467,17 @@ Three-column footer at the bottom of every page.
 |---------|----------|
 | Brand (left / start) | Logo + business name + tagline |
 | Links (center) | Same nav links as header + social links + `accessibility.html` + `privacy.html` |
-| Copyright (bottom row) | `© [YEAR] [BUSINESS_NAME] — [RIGHTS_NOTE]` |
+| Copyright (bottom row) | `© [YEAR] [BUSINESS_NAME] - [RIGHTS_NOTE]` |
 
 ---
 
 ## 17. Auxiliary Pages
 
-> ⚠️ **Both pages are legally mandatory for Israeli businesses** — see §0.1. Failing to publish or maintain them exposes the owner to civil claims. Have the final text reviewed by counsel; the headings below are a structural baseline only.
+> ⚠️ **Both pages are legally mandatory for Israeli businesses** - see §0.1. Failing to publish or maintain them exposes the owner to civil claims. Have the final text reviewed by counsel; the headings below are a structural baseline only.
 
 Both pages reuse the site's header, footer, and CSS so they feel consistent. They use `.header.scrolled` by default (no hero behind them). Link to both from the footer of **every** page.
 
-### `privacy.html` — Privacy Policy
+### `privacy.html` - Privacy Policy
 
 Required under the Privacy Protection Law, 5741-1981 (as amended by Amendment No. 13, in force August 2025). At minimum, the page must cover:
 
@@ -485,7 +485,7 @@ Required under the Privacy Protection Law, 5741-1981 (as amended by Amendment No
 |---------|----------|
 | Identity of the data controller | `[BUSINESS_NAME]` + registered address + contact |
 | What is collected | Contact-form fields, analytics events, cookies, IP/user-agent, any CRM fields |
-| Purposes & legal basis | Appointment booking, customer service, marketing (if applicable — needs separate opt-in) |
+| Purposes & legal basis | Appointment booking, customer service, marketing (if applicable - needs separate opt-in) |
 | Recipients / processors | Hosting provider, Google Analytics, WhatsApp, any CRM |
 | Retention period | Per-category retention times |
 | User rights | Access, correction, deletion, objection, data portability; how to exercise them |
@@ -495,13 +495,13 @@ Required under the Privacy Protection Law, 5741-1981 (as amended by Amendment No
 | Contact for privacy requests | Email / form / postal address |
 | Last updated | `[PRIVACY_UPDATED_DATE]` |
 
-### `accessibility.html` — Accessibility Statement
+### `accessibility.html` - Accessibility Statement
 
 Required under the Equal Rights for Persons with Disabilities (Service Accessibility Adjustments) Regulations, 5773-2013. Must be published and linked from every page.
 
 | Field | Your Value |
 |-------|------------|
-| Target Standard | `[A11Y_STANDARD]` (IS 5568 / WCAG 2.0 AA at time of writing — re-verify before launch) |
+| Target Standard | `[A11Y_STANDARD]` (IS 5568 / WCAG 2.0 AA at time of writing - re-verify before launch) |
 | Declaration of effort | Statement that reasonable effort was made to meet the standard |
 | Implemented accommodations | List: keyboard nav, alt text, contrast, accessibility widget controls, skip links, ARIA, etc. |
 | Known limitations | Any content that is not fully accessible + workaround |
@@ -521,7 +521,7 @@ Required under the Equal Rights for Persons with Disabilities (Service Accessibi
 | HTML | Vanilla HTML5 | `index.html` + `privacy.html` + `accessibility.html` |
 | CSS | Vanilla CSS | Single `style.css`, CSS custom properties for theming |
 | JavaScript | Vanilla ES6+ | Single `script.js`, no build step, idle-loaded below-the-fold |
-| Icons | **Inline SVGs** | No CDN/library — shapes copied from lucide.dev |
+| Icons | **Inline SVGs** | No CDN/library - shapes copied from lucide.dev |
 | Fonts | Google Fonts (CDN) | preconnected + `display=swap` |
 | Analytics | Google `gtag.js` (optional) | Async-loaded |
 | Build Tools | None | Static files, deploy anywhere |
@@ -550,7 +550,7 @@ project/
 
 ## 20. JS Features & What to Update
 
-`script.js` is split into self-contained `init*()` functions. Missing DOM nodes are tolerated — each function exits early if its root element isn't found.
+`script.js` is split into self-contained `init*()` functions. Missing DOM nodes are tolerated - each function exits early if its root element isn't found.
 
 | Feature | Function | What to Change |
 |---------|----------|----------------|
@@ -571,7 +571,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initStickyHeader();
     initServicesSlider();
 
-    // Deferred — each below-the-fold init gets its own idle slot
+    // Deferred - each below-the-fold init gets its own idle slot
     scheduleIdle(() => initGallery(),             1000);
     scheduleIdle(() => initTestimonials(),        1500);
     scheduleIdle(() => initContactForm(),         2000);
@@ -579,7 +579,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 ```
 
-`scheduleIdle` uses `requestIdleCallback` with a `setTimeout` fallback — keeps Total Blocking Time low on page load.
+`scheduleIdle` uses `requestIdleCallback` with a `setTimeout` fallback - keeps Total Blocking Time low on page load.
 
 ---
 
@@ -588,8 +588,8 @@ document.addEventListener("DOMContentLoaded", () => {
 | Breakpoint | Hero | Services | Gallery | Layout |
 |------------|------|----------|---------|--------|
 | ≤480px (mobile) | Stacked | Stacked / scroll-snap | 1 slide | Mobile nav (hamburger) |
-| 481–768px (tablet) | Stacked | Stacked / scroll-snap | 2 slides | Mobile nav |
-| 769–1024px (small desktop) | Compact | 3-card slider | 3 slides | Desktop nav |
+| 481-768px (tablet) | Stacked | Stacked / scroll-snap | 2 slides | Mobile nav |
+| 769-1024px (small desktop) | Compact | 3-card slider | 3 slides | Desktop nav |
 | >1024px (desktop) | Compact | 5-card slider | 3 slides | Desktop nav |
 
 ---
@@ -629,15 +629,15 @@ The reference site targets WCAG 2.0 AA and Israeli IS 5568. The CSS/JS provides:
 - [ ] (Optional) Add Google Analytics Measurement ID or remove the gtag snippet
 - [ ] Fill in `privacy.html` and `accessibility.html` with business-specific content
 - [ ] Translate accessibility widget control labels in `script.js`
-- [ ] Test on mobile, tablet, desktop — including keyboard-only and screen reader
+- [ ] Test on mobile, tablet, desktop - including keyboard-only and screen reader
 - [ ] Verify Total Blocking Time / Lighthouse score after deploy
 - [ ] Deploy to static hosting (add `CNAME` if using GitHub Pages + custom domain)
 
 ### Pre-launch legal gate (Israeli businesses)
 
-> Do not go live until these are signed off — see §0.1 for the liability context.
+> Do not go live until these are signed off - see §0.1 for the liability context.
 
-- [ ] Confirm the target accessibility standard is still current (IS 5568 / WCAG 2.0 AA at time of writing — re-verify)
+- [ ] Confirm the target accessibility standard is still current (IS 5568 / WCAG 2.0 AA at time of writing - re-verify)
 - [ ] Confirm current Israeli privacy-law obligations (Privacy Protection Law + Amendment No. 13 effects, database registration threshold, cookie rules)
 - [ ] Run an accessibility audit on the deployed site: automated (Lighthouse / axe) + manual keyboard + screen reader
 - [ ] Verify the accessibility widget is present on **every** page and functions correctly
