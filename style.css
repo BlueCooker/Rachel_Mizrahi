@@ -865,12 +865,12 @@ body.high-contrast .dot.active {
 .form-row textarea {
     font-family: inherit;
     font-size: 1.05rem;
-    padding: 0.9rem 1rem;
-    border-radius: var(--radius-sm);
-    border: 2px solid #D5CFC4;
-    background: var(--nude-light);
+    padding: 0.95rem 1.1rem;
+    border-radius: var(--radius);
+    border: 1.5px solid #C7C0B3;
+    background: var(--white);
     color: var(--text);
-    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+    transition: border-color var(--transition), box-shadow var(--transition);
     width: 100%;
 }
 
