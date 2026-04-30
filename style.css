@@ -106,12 +106,13 @@ p {
 }
 
 .section-title-script {
-    font-family: var(--font-script);
-    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-family: var(--font-elegant);
+    font-size: clamp(2rem, 3.75vw, 3rem);
     color: var(--primary-dark);
     text-align: center;
-    margin-bottom: 0.25em;
-    letter-spacing: 0.02em;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    letter-spacing: 0;
 }
 
 .section-description {
