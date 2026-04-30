@@ -864,9 +864,9 @@ body.high-contrast .dot.active {
 .form-row select,
 .form-row textarea {
     font-family: inherit;
-    font-size: 1.05rem;
-    padding: 0.95rem 1.1rem;
-    border-radius: var(--radius);
+    font-size: 1rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: var(--radius-sm);
     border: 1.5px solid #C7C0B3;
     background: var(--white);
     color: var(--text);
